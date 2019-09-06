@@ -5,12 +5,12 @@ import "log"
 import "net/http"
 import "github.com/gorilla/mux"
 
-func StartRouter() {
+func StartRouter(port string) {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", HomeLink)
 	router.HandleFunc("/status", StatsPage)
 	router.HandleFunc("/nom", NomPage)
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(port, router))
 }
 
 func HomeLink(w http.ResponseWriter, r *http.Request) {
