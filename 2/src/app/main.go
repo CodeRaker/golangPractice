@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+server1Port := 8080
+server2Port := 8081
+//server1Chan := make (chan int, 2) // create buffered channel with capacity of two
+//server1Chan := make (chan int)
+
 /*type Pr struct {
 	func objprint() {
 		fmt.Printf("hello from struct")
@@ -21,8 +26,8 @@ func main() {
 	//l := Pr
 	//l.objprint()
 	go printTime()
-	go restapi.StartRouter(":8080")
-	restapi.StartRouter(":8081")
+	go restapi.StartRouter(server1Port)
+	restapi.StartRouter(server2Port)
 }
 
 func printTime() {
@@ -32,4 +37,4 @@ func printTime() {
 	}
 }
 
-// comments
+// https://devhints.io/go
